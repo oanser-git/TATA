@@ -15,7 +15,7 @@
 Network-Intrusion-Detection-System (NIDS) test sets**. It **assesses** how well
 a test set stresses a NIDS by comparing it to the corresponding training set
 through three complementary, dataset-centric metrics (**diversity, proximity,
-and scarcity**) and then closes the uncovered gaps by generating *real* network
+and scarcity**) and then closes the uncovered gaps by guiding the generation of *real* network
 flows that make future evaluations more challenging.
 
 **How it works.** The pipeline (i) trains a **contrastive auto-encoder** on the
