@@ -1,0 +1,90 @@
+experiments:
+  ablation_ae:
+    n_splits: 10
+    train_ratio: 0.6
+    seeds: [42, 43, 44, 45, 46, 47, 48, 49, 50, 51]
+    metrics: ["silhouette_score", "km_accuracy"]
+
+  correlation:
+    diversity:
+      min_k: 1
+      max_k: 9
+      metric: "pearson_spearman"
+    proximity:
+      n_subsets: 100
+      correlation_metrics: ["pearson", "spearman"]
+    scarcity:
+      n_steps: 10
+      correlation_metrics: ["pearson", "spearman"]
+
+  augmentation:
+    methods: ["no_augmentation", "random_agent", "tata_full", "tata_partial"]
+    partial_combinations:
+      - name: "proximity_only"
+        weights:
+          diversity: 0.0
+          proximity: 1.0
+          scarcity: 0.0
+      - name: "diversity_only"
+        weights:
+          diversity: 1.0
+          proximity: 0.0
+          scarcity: 0.0
+      - name: "scarcity_only"
+        weights:
+          diversity: 0.0
+          proximity: 0.0
+          scarcity: 1.0
+      - name: "proximity_scarcity"
+        weights:
+          diversity: 0.0
+          proximity: 1.0
+          scarcity: 1.0
+      - name: "proximity_diversity"
+        weights:
+          diversity: 1.0
+          proximity: 1.0
+          scarcity: 0.0
+      - name: "diversity_scarcity"
+        weights:
+          diversity: 1.0
+          proximity: 0.0
+          scarcity: 1.0
+    nids_models: ["random_forest", "svm", "dnn"]
+    transfer:
+      train_dataset: "ids2018"
+      test_dataset: "ids2017"
+
+  multidataset:
+    datasets:
+      - nsl_kdd
+      - ctu_13
+      - iscx_ids_2012
+      - unsw_nb15
+      - cic_unsw
+      - iscx_tor
+      - vpn_nonvpn
+      - cic_ids_2017
+      - cse_cic_ids_2018
+      - bot_iot
+      - cic_ddos_2019
+      - ton_iot
+    n_splits_per_dataset: 10
+    train_ratio: 0.6
+
+  rl_hpo:
+    n_splits: 20
+    val_ratio: 0.5
+    fqe_epochs: 100
+    algorithms: ["cql", "td3_plus_bc"]
+    search_space:
+      actor_learning_rate: [0.0001, 0.0003, 0.001]
+      critic_learning_rate: [0.0001, 0.0003, 0.001]
+      batch_size: [64, 128, 256]
+      n_steps: [50000, 100000]
+
+  global:
+    random_seed: 42
+    n_jobs: -1
+    results_dir: "results"
+    figures_dir: "figures"

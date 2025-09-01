@@ -1,0 +1,72 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environments
+.venv
+env/
+venv/
+ENV/
+
+# IDEs
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# TATA generated artifacts
+data/artifacts/*
+!data/artifacts/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
+data/offline_transitions/*
+!data/offline_transitions/.gitkeep
+d3rlpy_logs/*
+!d3rlpy_logs/.gitkeep
+*.pt
+*.pkl
+*.npz
+*.d3
+*.db
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Optuna
+optuna.db
+*.db-journal
+
+# Jupyter (if used)
+.ipynb_checkpoints
+
+# Internal-only (not for repository)
+tests/
+scripts/smoke_test.py

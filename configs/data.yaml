@@ -1,0 +1,18 @@
+# Data configuration
+data:
+  # Split configuration
+  split:
+    train_ratio: 0.6
+    val_ratio: 0.2
+    test_ratio: 0.2
+    random_seeds: [42, 43, 44, 45, 46, 47, 48, 49, 50, 51]  # 10 seeds for paper reproduction
+
+  # Preprocessing
+  preprocessing:
+    scaler_type: "standard"  # or "minmax"
+
+# Paths
+paths:
+  processed_dir: "data/processed"
+  artifacts_dir: "data/artifacts"
+  raw_dir: "data/raw"

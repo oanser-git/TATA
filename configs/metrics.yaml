@@ -1,0 +1,19 @@
+# Metrics configuration
+metrics:
+  # Weights for future RL reward (Phase 2)
+  reward_weights:
+    diversity: 1.0
+    proximity: 1.0
+    scarcity: 1.0
+
+  # Assessment settings
+  assessment:
+    # Kernel for Vendi score similarity matrix
+    vendi_kernel: "rbf"
+    vendi_gamma: "scale"
+    
+    # KS statistic settings
+    ks_alternative: "greater"  # one-sided: test distances < train distances
+    
+    # Gini settings
+    gini_corrected: true  # apply bias correction for small samples

@@ -1,0 +1,30 @@
+# Reinforcement Learning configuration
+rl:
+  environment:
+    max_steps_per_episode: 5000
+    target_reward: 0.9  # Paper: episode terminates when reward > 0.9
+    reward_weights:
+      diversity: 1.0
+      proximity: 1.0
+      scarcity: 1.0
+  
+  offline_data_collection:
+    n_episodes: 500
+    random_seed: 42
+    output_path: "data/offline_transitions/mock_transitions.pkl"
+  
+  training:
+    algorithm: "cql"  # or "td3_plus_bc"
+    actor_learning_rate: 0.0003
+    critic_learning_rate: 0.0003
+    batch_size: 256
+    n_steps: 100000
+    n_steps_per_epoch: 10000
+    save_interval: 10000
+    experiment_name: "tata_mock_augmentation"
+    model_save_path: "data/artifacts/rl_policy"
+    final_model_name: "cql_final.d3"
+    
+  evaluation:
+    n_episodes: 20
+    seed: 42
