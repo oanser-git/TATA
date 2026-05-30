@@ -20,7 +20,6 @@
   - [Main Pipeline](#main-pipeline)
   - [Individual Sections](#individual-sections)
 - [Standalone Scripts](#standalone-scripts)
-- [Hardware & Runtime Estimates](#hardware--runtime-estimates)
 - [Citation](#citation)
 - [License](#license)
 
